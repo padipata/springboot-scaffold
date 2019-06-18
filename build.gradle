@@ -1,0 +1,78 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")// 让spring-boot支持gradle
+        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+apply plugin: 'com.palantir.docker'
+
+group = 'padiapta'
+version = '1.0'
+
+mainClassName = 'com.yipage.root.SpringBootRun'
+
+bootJar {
+    baseName = 'spring-boot-scaffold'
+    version = '0.1.0'
+}
+
+// 强制使用4.9版本，团队规范
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.9'
+}
+
+// 声明语言类型
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+task unpack(type: Copy) {
+    dependsOn bootJar
+    from(zipTree(tasks.bootJar.outputs.files.singleFile))
+    into("build/dependency")
+}
+
+docker {
+    name "${project.group}/${bootJar.baseName}"
+    copySpec.from(tasks.unpack.outputs).into("dependency")
+    buildArgs(['DEPENDENCY': "dependency"])
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.1.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.3.RELEASE'
+    compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.10'
+    compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.1.10'
+    compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.3'
+    compile(group: 'mysql', name: 'mysql-connector-java', version: '8.0.15') { exclude(module: 'protobuf-java') }
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.1.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.3.RELEASE'
+    compile group: 'cn.hutool', name: 'hutool-all', version: '4.5.7'
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.0'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.3.RELEASE'
+}

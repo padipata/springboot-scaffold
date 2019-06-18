@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: spring-boot-scaffold-deployment
+  labels:
+    app: spring-boot-scaffold
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring-boot-scaffold
+  template:
+    metadata:
+      labels:
+        app: spring-boot-scaffold
+    spec:
+      containers:
+        - name: spring-boot-scaffold
+          image: padiapta/spring-boot-scaffold:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
