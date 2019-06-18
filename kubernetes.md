@@ -136,10 +136,19 @@ targetCompatibility = 1.8
 
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.3.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.1.3.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.3.RELEASE'
-    compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.10'
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.3.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.1.3.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.3.RELEASE'
+        compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.10'
+        compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.1.10'
+        compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.3'
+        compile(group: 'mysql', name: 'mysql-connector-java', version: '8.0.15') { exclude(module: 'protobuf-java') }
+        compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+        compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.1.3.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.3.RELEASE'
+        compile group: 'cn.hutool', name: 'hutool-all', version: '4.5.7'
+        compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.0'
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.3.RELEASE'
 }
 ```
 
