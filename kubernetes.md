@@ -175,7 +175,9 @@ docker images
 
 #### 运行镜像
 
-- `docker run -p 8080:8080 docker padipata/spring-boot-scaffold:latest`
+```shell
+docker run -p 8080:8080 docker padipata/spring-boot-scaffold:latest
+```
 
 
 **浏览器访问：http://localhost:8080/swagger-ui.html ，如成功运行，请接着往下看**
