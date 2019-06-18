@@ -168,12 +168,10 @@ ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-cp","app:app/li
 
 ```shell
 docker build -t padipata/spring-boot-scaffold:latest .
+
+# 查看构建好的镜像
 docker images
 ```
-
-- 查看构建好的镜像
-
-![6b97fd80adab834c617c9a0907c6b973.png](evernotecid://528174BA-8B48-4031-9CF5-033445ED73DE/appyinxiangcom/21727740/ENResource/p25)
 
 #### 运行镜像
 
@@ -290,6 +288,7 @@ kubectl expose deployment spring-boot-scaffold-deployment --type=NodePort
 minikube service spring-boot-scaffold-deployment --url
 ```
 
+**浏览器访问：http://192.168.99.100:30583/swagger-ui.html ，如成功运行，则说明部署成功**
 
 
 ***
@@ -328,8 +327,6 @@ kubectl scale deployment spring-boot-scaffold-deployment --replicas=4
 ```
 
 再次执行`kubectl get pods`，可以看到服务成功扩充到了4个节点。
-
-**浏览器访问：http://192.168.99.100:30583/swagger-ui.html ，如成功运行，则说明部署成功**
 
 * * *
 ### 常见错误
