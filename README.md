@@ -5,6 +5,11 @@
 - 启动项目：直接运行com.yipage.root.SpringBootRun的main方法即可，
 - 接口文档地址：http://localhost:8080/swagger-ui.html
 
+### Docker & Kubernetes 部署
+
+[详细文档](kubernetes.md)
+
+
 ### 技术选型
 
 技术 | 说明 | 官网
@@ -28,12 +33,3 @@ JDK | 1.8 | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downlo
 Mysql | 5.7 | https://www.mysql.com/
 Redis | 3.2 | https://redis.io/download
 Nginx | 1.10 | http://nginx.org/en/download.html
-
-### 项目权限表说明
-
-- ums_admin：后台用户表
-- ums_role：后台用户角色表
-- ums_permission：后台用户权限表
-- ums_admin_role_relation：后台用户和角色关系表，用户与角色是多对多关系
-- ums_role_permission_relation：后台用户角色和权限关系表，角色与权限是多对多关系
-- ums_admin_permission_relation：后台用户和权限关系表(除角色中定义的权限以外的加减权限)，加权限是指用户比角色多出的权限，减权限是指用户比角色少的权限
