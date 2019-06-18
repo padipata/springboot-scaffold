@@ -24,11 +24,11 @@ apply plugin: 'com.palantir.docker'
 group = 'padiapta'
 version = '1.0'
 
-mainClassName = 'com.yipage.root.SpringBootRun'
+//mainClassName = 'com.yipage.root.SpringBootRun'
 
 bootJar {
     baseName = 'spring-boot-scaffold'
-    version = '0.1.0'
+    version = '1.0'
 }
 
 // 强制使用4.9版本，团队规范
