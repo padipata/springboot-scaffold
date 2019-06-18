@@ -293,6 +293,10 @@ kubectl expose deployment spring-boot-scaffold-deployment --type=NodePort
 minikube service spring-boot-scaffold-deployment --url
 ```
 
+#### 查看 kubernetes 里面的状态
+
+![img](https://qiniu.yipage.cn/k8s.png)
+
 **浏览器访问：http://192.168.99.100:30583/swagger-ui.html ，如成功运行，则说明部署成功**
 
 
