@@ -2,16 +2,11 @@
 
 ### 本地测试
 
-#### 本地`gradle`打`jar`包，并测试
-
-- `gradle build`对应的打包目录 --> `build`目录下的`libs`文件夹下会出现 `spring-boot-scaffold-1.0.jar`
-    
-- 测试
+#### 本地测试jar包
 
 ```shell
 java -jar spring-boot-scaffold-1.0.jar
 ```
-  
   
 **浏览器访问：http://localhost:8080/swagger-ui.html ，如成功运行，请接着往下看**
 
