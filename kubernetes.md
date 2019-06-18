@@ -217,10 +217,12 @@ minikube dashboard
 
 ```shell
 # 将刚才构建的镜像导出到一个tar包里
-docker save springbootdemo:latest > springbootdemo.tar
+docker save padipata/spring-boot-scaffold:latest > spring-boot-scaffold.tar
 
 # 将 docker daemon 切换成 minikube 的
 eval $(minikube docker-env)
+
+docker load < spring-boot-scaffold.tar
 
 # 在项目根目录下创建一个名为 spring-boot-scaffold.yaml 的文件，这是容器编排的脚本
 touch spring-boot-scaffold.yaml
