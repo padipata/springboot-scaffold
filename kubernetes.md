@@ -222,6 +222,7 @@ docker save padipata/spring-boot-scaffold:latest > spring-boot-scaffold.tar
 # 将 docker daemon 切换成 minikube 的
 eval $(minikube docker-env)
 
+# 将本地 tar 包导入 minikube
 docker load < spring-boot-scaffold.tar
 
 # 在项目根目录下创建一个名为 spring-boot-scaffold.yaml 的文件，这是容器编排的脚本
